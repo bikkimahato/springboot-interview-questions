@@ -54,7 +54,7 @@ We've organized the questions into various topics to make it easier for you to n
 
 ## 🙌 Contributing
 
-We welcome contributions from the community! If you have additional questions, answers, or improvements, please feel free to submit a pull request. Make sure to follow our [contribution guidelines](CONTRIBUTING.md).
+We welcome contributions from the community! If you have additional questions, answers, or improvements, please feel free to submit a pull request.
 
 ---
 
