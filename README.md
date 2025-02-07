@@ -76,3 +76,130 @@ Happy coding and good luck with your interview preparation! 🚀
 | 8   | [How can you create a Spring Boot application using Spring Initializr?](#8-how-can-you-create-a-spring-boot-application-using-spring-initializr) |
 | 9   | [What is the difference between the `application.properties` and `application.yml` files?](#9-what-is-the-difference-between-the-applicationproperties-and-applicationyml-files) |
 | 10  | [How do you define a custom configuration in Spring Boot?](#10-how-do-you-define-a-custom-configuration-in-spring-boot) |
+
+## Spring Boot Basic Interview Questions and answers
+### 1. What is Spring Boot?
+
+Spring Boot is an open-source framework developed by Pivotal Team (part of VMware) which is used to create stand-alone, production-grade Spring-based applications. It simplifies the setup and development of new Spring applications by providing a range of non-functional features commonly used in applications (such as embedded servers, security, and metrics) out of the box.
+
+**Example:**
+```java
+// Sample Spring Boot Application
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MySpringBootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringBootApplication.class, args);
+    }
+}
+```
+
+### 2. What are the main features of Spring Boot?
+
+- **Auto-Configuration**: Automatically configures your Spring application based on the dependencies you have added.
+- **Standalone**: Standalone applications that can be run from the command line.
+- **Embedded Server**: No need for deploying WAR files, embedded servers like Tomcat, Jetty, etc.
+- **Production Ready**: Metrics, health checks, and externalized configuration.
+- **Spring Boot Starters**: Set of convenient dependency descriptors to quickly set up a Spring-based project.
+- **Spring Boot CLI**: Command-line interface for creating and deploying Spring Boot applications.
+
+**Example:**
+```java
+// Auto-Configuration Example
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan
+public class MyAutoConfigurationApp {
+    public static void main(String[] args) {
+        SpringApplication.run(MyAutoConfigurationApp.class, args);
+    }
+}
+```
+
+### 3. Explain the Spring Boot architecture.
+
+Spring Boot architecture is built on top of the Spring Framework. It follows the layered architecture pattern which includes:
+
+- **Presentation Layer**: Handles the HTTP requests and responses.
+- **Service Layer**: Contains business logic.
+- **Repository Layer**: Deals with database operations.
+- **Integration Layer**: Integrates with other services or APIs.
+
+Spring Boot uses the following key components:
+- **Spring Core**: Provides dependency injection.
+- **Spring MVC**: Provides model-view-controller architecture.
+- **Spring Data**: Provides easy data access.
+- **Spring Security**: Provides authentication and authorization.
+- **Spring Boot Auto Configuration**: Automatically configures application based on dependencies.
+
+**Example:**
+```java
+// Service Layer Example
+import org.springframework.stereotype.Service;
+
+@Service
+public class MyService {
+    public String getGreeting() {
+        return "Hello, World!";
+    }
+}
+
+// Controller Layer Example
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MyController {
+    private final MyService myService;
+
+    public MyController(MyService myService) {
+        this.myService = myService;
+    }
+
+    @GetMapping("/greeting")
+    public String greeting() {
+        return myService.getGreeting();
+    }
+}
+```
+
+### 4. What is the purpose of the `@SpringBootApplication` annotation?
+
+The `@SpringBootApplication` annotation is a combination of three annotations:
+- `@Configuration`: Indicates that the class has `@Bean` definition methods.
+- `@EnableAutoConfiguration`: Enables Spring Boot’s auto-configuration mechanism.
+- `@ComponentScan`: Enables component scanning so that the web controller classes and other components you create are automatically discovered and registered as beans in Spring's application context.
+
+**Example:**
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MySpringBootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringBootApplication.class, args);
+    }
+}
+```
+
+### 5. How does Spring Boot simplify dependency management?
+
+Spring Boot simplifies dependency management by providing a set of "starter" dependencies. These starters are a set of convenient dependency descriptors that you can include in your application to get a pre-defined set of libraries.
+
+**Example:**
+```xml
+<!-- Maven POM Example -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+
+With this starter, you get all the necessary dependencies for building a web application, including Spring MVC, Jackson for JSON binding, and an embedded Tomcat server.
