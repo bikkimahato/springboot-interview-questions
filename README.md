@@ -95,6 +95,8 @@ public class MySpringBootApplication {
     }
 }
 ```
+#### **[⬆ Back to Top](#level--spring-boot-basic)**
+---
 
 ### 2. What are the main features of Spring Boot?
 
@@ -121,6 +123,8 @@ public class MyAutoConfigurationApp {
     }
 }
 ```
+#### **[⬆ Back to Top](#level--spring-boot-basic)**
+---
 
 ### 3. Explain the Spring Boot architecture.
 
@@ -168,6 +172,8 @@ public class MyController {
     }
 }
 ```
+#### **[⬆ Back to Top](#level--spring-boot-basic)**
+---
 
 ### 4. What is the purpose of the `@SpringBootApplication` annotation?
 
@@ -188,6 +194,8 @@ public class MySpringBootApplication {
     }
 }
 ```
+#### **[⬆ Back to Top](#level--spring-boot-basic)**
+---
 
 ### 5. How does Spring Boot simplify dependency management?
 
@@ -203,6 +211,9 @@ Spring Boot simplifies dependency management by providing a set of "starter" dep
 ```
 
 With this starter, you get all the necessary dependencies for building a web application, including Spring MVC, Jackson for JSON binding, and an embedded Tomcat server.
+
+#### **[⬆ Back to Top](#level--spring-boot-basic)**
+---
 
 ### 6. What are Spring Boot Starters and how do they help in development?
 
@@ -222,6 +233,8 @@ Spring Boot Starters are dependency descriptors that can be added to your projec
     <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 ```
+#### **[⬆ Back to Top](#level--spring-boot-basic)**
+---
 
 ### 7. Explain the concept of "convention over configuration" in Spring Boot.
 
@@ -229,6 +242,9 @@ Spring Boot Starters are dependency descriptors that can be added to your projec
 
 **Example:**
 When you add `spring-boot-starter-web` to your project, Spring Boot assumes you want to create a web application and automatically configures Tomcat as the default server.
+
+#### **[⬆ Back to Top](#level--spring-boot-basic)**
+---
 
 ### 8. How can you create a Spring Boot application using Spring Initializr?
 
@@ -239,6 +255,9 @@ Spring Initializr is a web-based tool provided by Spring to bootstrap a new Spri
 2. Select project metadata (Group, Artifact, etc.).
 3. Choose dependencies you want to include.
 4. Click "Generate" to download the project.
+
+#### **[⬆ Back to Top](#level--spring-boot-basic)**
+---
 
 ### 9. What is the difference between the `application.properties` and `application.yml` files?
 
@@ -261,6 +280,8 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/mydb
 ```
+#### **[⬆ Back to Top](#level--spring-boot-basic)**
+---
 
 ### 10. How do you define a custom configuration in Spring Boot?
 
@@ -282,3 +303,6 @@ public class MyCustomConfiguration {
 ```
 
 In this example, `MyService` is a custom bean that is defined in the configuration class.
+
+#### **[⬆ Back to Top](#level--spring-boot-basic)**
+---
