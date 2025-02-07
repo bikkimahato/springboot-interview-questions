@@ -203,3 +203,82 @@ Spring Boot simplifies dependency management by providing a set of "starter" dep
 ```
 
 With this starter, you get all the necessary dependencies for building a web application, including Spring MVC, Jackson for JSON binding, and an embedded Tomcat server.
+
+### 6. What are Spring Boot Starters and how do they help in development?
+
+Spring Boot Starters are dependency descriptors that can be added to your project to include a set of dependencies. They help in rapid development by reducing the need for manually specifying dependencies in your build configuration.
+
+**Example:**
+```xml
+<!-- Spring Boot Starter for JPA -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+<!-- Spring Boot Starter for Web -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+
+### 7. Explain the concept of "convention over configuration" in Spring Boot.
+
+"Convention over configuration" is a design paradigm used by Spring Boot to reduce the number of decisions a developer has to make. It provides default configurations based on the context and dependencies of the application, which can be overridden if necessary.
+
+**Example:**
+When you add `spring-boot-starter-web` to your project, Spring Boot assumes you want to create a web application and automatically configures Tomcat as the default server.
+
+### 8. How can you create a Spring Boot application using Spring Initializr?
+
+Spring Initializr is a web-based tool provided by Spring to bootstrap a new Spring Boot project. You can select the dependencies and download the project as a ZIP file.
+
+**Steps:**
+1. Go to [Spring Initializr](https://start.spring.io/).
+2. Select project metadata (Group, Artifact, etc.).
+3. Choose dependencies you want to include.
+4. Click "Generate" to download the project.
+
+### 9. What is the difference between the `application.properties` and `application.yml` files?
+
+Both `application.properties` and `application.yml` are used for configuring Spring Boot applications. The main difference lies in their format:
+- **application.properties**: Key-value pairs.
+- **application.yml**: YAML format, which is more readable and supports hierarchical data.
+
+**Example:**
+```properties
+# application.properties
+server.port=8080
+spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+```
+
+```yaml
+# application.yml
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb
+```
+
+### 10. How do you define a custom configuration in Spring Boot?
+
+You can define custom configurations in Spring Boot by creating a class annotated with `@Configuration` and defining beans within it.
+
+**Example:**
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class MyCustomConfiguration {
+
+    @Bean
+    public MyService myService() {
+        return new MyServiceImpl();
+    }
+}
+```
+
+In this example, `MyService` is a custom bean that is defined in the configuration class.
