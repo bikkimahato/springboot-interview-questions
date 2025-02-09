@@ -77,6 +77,26 @@ Happy coding and good luck with your interview preparation! 🚀
 | 9   | [What is the difference between the `application.properties` and `application.yml` files?](#9-what-is-the-difference-between-the-applicationproperties-and-applicationyml-files) |
 | 10  | [How do you define a custom configuration in Spring Boot?](#10-how-do-you-define-a-custom-configuration-in-spring-boot) |
 
+## Spring Boot Core
+### Table of Contents
+| No. | Questions |
+| --- | --------- |
+| 1   | [What are the main features of Spring Boot and how does it simplify development compared to the traditional Spring framework?](#1-what-are-the-main-features-of-spring-boot-and-how-does-it-simplify-development-compared-to-the-traditional-spring-framework) |
+| 2   | [Explain the concept of auto-configuration in Spring Boot. How does it work and how can you customize it?](#2-explain-the-concept-of-auto-configuration-in-spring-boot-how-does-it-work-and-how-can-you-customize-it) |
+| 3   | [What are Spring Boot Starters and how do they help in building Spring Boot applications?](#3-what-are-spring-boot-starters-and-how-do-they-help-in-building-spring-boot-applications) |
+| 4   | [How does Spring Boot handle externalized configuration? Explain the role of `application.properties` and `application.yml`.](#4-how-does-spring-boot-handle-externalized-configuration-explain-the-role-of-applicationproperties-and-applicationyml) |
+| 5   | [What is Spring Boot Actuator? What are some of the key endpoints provided by Actuator?](#5-what-is-spring-boot-actuator-what-are-some-of-the-key-endpoints-provided-by-actuator) |
+| 6   | [How can you enable and use Spring Boot DevTools in your application? What are its benefits?](#6-how-can-you-enable-and-use-spring-boot-devtools-in-your-application-what-are-its-benefits) |
+| 7   | [Explain the difference between `@RestController` and `@Controller` in Spring Boot.](#7-explain-the-difference-between-restcontroller-and-controller-in-spring-boot) |
+| 8   | [How does Spring Boot manage dependencies? Explain the role of the `spring-boot-starter-parent` in dependency management.](#8-how-does-spring-boot-manage-dependencies-explain-the-role-of-the-spring-boot-starter-parent-in-dependency-management) |
+| 9   | [What is the purpose of `@SpringBootApplication` annotation? How does it work internally?](#9-what-is-the-purpose-of-springbootapplication-annotation-how-does-it-work-internally) |
+| 10  | [How can you configure a Spring Boot application to connect to a database? What are some common properties that need to be set?](#10-how-can-you-configure-a-spring-boot-application-to-connect-to-a-database-what-are-some-common-properties-that-need-to-be-set) |
+| 11  | [What are Spring Boot profiles and how do you use them to manage different environments?](#11-what-are-spring-boot-profiles-and-how-do-you-use-them-to-manage-different-environments) |
+| 12  | [How do you handle exceptions globally in a Spring Boot application? Explain the use of `@ControllerAdvice`.](#12-how-do-you-handle-exceptions-globally-in-a-spring-boot-application-explain-the-use-of-controlleradvice) |
+| 13  | [What is the use of `@ConfigurationProperties` in Spring Boot? How does it help in managing configuration?](#13-what-is-the-use-of-configurationproperties-in-spring-boot-how-does-it-help-in-managing-configuration) |
+| 14  | [How can you secure a Spring Boot application using Spring Security? Provide an example.](#14-how-can-you-secure-a-spring-boot-application-using-spring-security-provide-an-example) |
+| 15  | [Explain the concept of embedded servers in Spring Boot. How can you configure and use different embedded servers like Tomcat, Jetty, and Undertow?](#15-explain-the-concept-of-embedded-servers-in-spring-boot-how-can-you-configure-and-use-different-embedded-servers-like-tomcat-jetty-and-undertow) |
+
 ## Spring Boot Basic Interview Questions and answers
 ### 1. What is Spring Boot?
 
