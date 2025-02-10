@@ -97,7 +97,7 @@ Happy coding and good luck with your interview preparation! 🚀
 | 14  | [How can you secure a Spring Boot application using Spring Security? Provide an example.](#14-how-can-you-secure-a-spring-boot-application-using-spring-security-provide-an-example) |
 | 15  | [Explain the concept of embedded servers in Spring Boot. How can you configure and use different embedded servers like Tomcat, Jetty, and Undertow?](#15-explain-the-concept-of-embedded-servers-in-spring-boot-how-can-you-configure-and-use-different-embedded-servers-like-tomcat-jetty-and-undertow) |
 
-## Spring Boot Basic Interview Questions and answers
+## Spring Boot Basic Interview Questions and Answers
 ### 1. What is Spring Boot?
 
 Spring Boot is an open-source framework developed by Pivotal Team (part of VMware) which is used to create stand-alone, production-grade Spring-based applications. It simplifies the setup and development of new Spring applications by providing a range of non-functional features commonly used in applications (such as embedded servers, security, and metrics) out of the box.
@@ -325,4 +325,135 @@ public class MyCustomConfiguration {
 In this example, `MyService` is a custom bean that is defined in the configuration class.
 
 #### **[⬆ Back to Top](#level--spring-boot-basic)**
+---
+
+## Spring Boot Core Interview Questions and Answers
+### 1. What are the main features of Spring Boot and how does it simplify development compared to the traditional Spring framework?
+Spring Boot is designed to simplify the development of Spring-based applications by providing a range of features that streamline configuration and deployment. Some of its main features include:
+
+- **Auto-configuration**: Automatically configures Spring applications based on the dependencies present in the classpath.
+- **Embedded Servers**: Comes with embedded servers like Tomcat, Jetty, and Undertow, reducing the need for complex server configurations.
+- **Spring Boot Starters**: Provide a set of convenient dependency descriptors to simplify Maven or Gradle configuration.
+- **Spring Boot CLI**: Allows you to run and test Spring Boot applications from the command line.
+- **Spring Boot Actuator**: Provides production-ready features such as metrics, health checks, and more.
+- **Externalized Configuration**: Supports externalized configuration via `application.properties` or `application.yml` files.
+- **DevTools**: Enhances the development experience with features like automatic restarts and live reloads.
+
+### Example
+Here's a simple Spring Boot application:
+
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+public class MySpringBootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringBootApplication.class, args);
+    }
+}
+
+@RestController
+class MyController {
+    @GetMapping("/")
+    public String hello() {
+        return "Hello, Spring Boot!";
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+### 2. Explain the concept of auto-configuration in Spring Boot. How does it work and how can you customize it?
+Auto-configuration is a key feature of Spring Boot that automatically configures your application based on the dependencies you have added. It eliminates the need for explicit configuration in many cases.
+
+### How it works
+Spring Boot scans the classpath for libraries and uses predefined configuration classes to set up beans and other components automatically. The `@EnableAutoConfiguration` annotation (implicitly included in `@SpringBootApplication`) triggers this behavior.
+
+### Customizing Auto-Configuration
+You can customize auto-configuration using configuration properties or by defining custom beans. If you need to exclude specific auto-configurations, you can use the `@EnableAutoConfiguration` annotation with the `exclude` attribute.
+
+### Example
+To exclude a particular auto-configuration class:
+
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+public class MySpringBootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringBootApplication.class, args);
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+### 3. What are Spring Boot Starters and how do they help in building Spring Boot applications?
+Spring Boot Starters are a set of convenient dependency descriptors you can include in your application. They provide a curated set of dependencies for specific functionalities, making it easier to set up a new Spring Boot application.
+
+### Example
+To create a web application, you can add the `spring-boot-starter-web` dependency:
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+
+This starter includes dependencies for Spring MVC, Jackson for JSON processing, and an embedded Tomcat server.
+
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+### 4. How does Spring Boot handle externalized configuration? Explain the role of `application.properties` and `application.yml`.
+Spring Boot allows you to externalize your configuration so that you can work with the same application code in different environments. This is done using `application.properties` or `application.yml` files.
+
+### Example
+`application.properties`:
+```properties
+server.port=8081
+spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+spring.datasource.username=root
+spring.datasource.password=secret
+```
+
+`application.yml`:
+```yaml
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb
+    username: root
+    password: secret
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+## 5. What is Spring Boot Actuator? What are some of the key endpoints provided by Actuator?
+Spring Boot Actuator provides production-ready features for Spring Boot applications, such as monitoring and management capabilities. It includes endpoints that allow you to interact with your application and gather various metrics and information.
+
+### Example
+To enable Actuator, add the following dependency:
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+
+### Key Endpoints
+- `/actuator/health`: Provides information about the application's health status.
+- `/actuator/info`: Displays arbitrary application information.
+- `/actuator/metrics`: Exposes various metrics about the application.
+- `/actuator/env`: Displays properties from the `Environment`.
+
+#### **[⬆ Back to Top](#level--spring-boot-core)**
 ---
