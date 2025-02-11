@@ -459,3 +459,133 @@ To enable Actuator, add the following dependency:
 
 #### **[⬆ Back to Top](#level--spring-boot-core)**
 ---
+
+### 6. How can you enable and use Spring Boot DevTools in your application? What are its benefits?
+Spring Boot DevTools provides a set of tools that improve the development experience. It includes features like automatic restarts, live reload, and configurations for a fast feedback loop.
+
+### Enabling DevTools
+Add the following dependency to your `pom.xml`:
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <optional>true</optional>
+</dependency>
+```
+
+### Benefits
+- **Automatic Restart**: Automatically restarts the application whenever files on the classpath change.
+- **Live Reload**: Automatically refreshes the browser when resources change.
+- **Configurations**: Provides development-time configurations, such as disabling caching.
+
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+### 7. Explain the difference between `@RestController` and `@Controller` in Spring Boot.
+`@RestController` and `@Controller` are annotations used to define controllers in Spring Boot, but they serve different purposes.
+
+- **@Controller**: Used to define a controller class that handles web requests and returns view names. It's typically used in conjunction with view technologies like Thymeleaf or JSP.
+- **@RestController**: A convenience annotation that combines `@Controller` and `@ResponseBody`. It indicates that the controller's methods should return JSON or XML data directly to the client.
+
+### Example
+`@Controller`:
+```java
+@Controller
+public class MyController {
+    @GetMapping("/hello")
+    public String hello(Model model) {
+        model.addAttribute("message", "Hello, Spring Boot!");
+        return "hello";
+    }
+}
+```
+
+`@RestController`:
+```java
+@RestController
+public class MyRestController {
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello, Spring Boot!";
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+## 8. How does Spring Boot manage dependencies? Explain the role of the `spring-boot-starter-parent` in dependency management.
+Spring Boot simplifies dependency management by providing a set of "starter" dependencies that you can include in your project. These starters bring in a curated set of dependencies to support specific functionalities.
+
+### `spring-boot-starter-parent`
+The `spring-boot-starter-parent` is a special starter that provides default configurations for your project, including dependency versions, plugin configurations, and other settings.
+
+### Example
+In your `pom.xml`:
+```xml
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.5.4</version>
+</parent>
+
+<dependencies>
+    <!-- Spring Boot Starter Web for building web applications -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+</dependencies>
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+### 9. What is the purpose of `@SpringBootApplication` annotation? How does it work internally?
+The `@SpringBootApplication` annotation is a convenience annotation that combines three commonly used annotations:
+
+- `@Configuration`: Indicates that the class can be used by the Spring IoC container as a source of bean definitions.
+- `@EnableAutoConfiguration`: Enables Spring Boot's auto-configuration mechanism.
+- `@ComponentScan`: Enables component scanning, allowing Spring to find and register beans within the package.
+
+### Example
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MySpringBootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringBootApplication.class, args);
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+### 10. How can you configure a Spring Boot application to connect to a database? What are some common properties that need to be set?
+Spring Boot simplifies database configuration by providing default settings and allowing you to override them using properties in `application.properties` or `application.yml`.
+
+### Example
+`application.properties`:
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+spring.datasource.username=root
+spring.datasource.password=secret
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+```
+
+`application.yml`:
+```yaml
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb
+    username: root
+    password: secret
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
