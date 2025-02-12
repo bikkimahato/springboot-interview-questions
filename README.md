@@ -589,3 +589,181 @@ spring:
 ```
 #### **[⬆ Back to Top](#level--spring-boot-core)**
 ---
+
+### 11. What are Spring Boot profiles and how do you use them to manage different environments?
+Spring Boot profiles provide a way to segregate parts of your application configuration and make it only available in certain environments. This allows you to define environment-specific properties and beans.
+
+### Example
+Define profile-specific properties in `application-{profile}.properties` or `application-{profile}.yml`.
+
+`application-dev.properties`:
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/devdb
+spring.datasource.username=devuser
+spring.datasource.password=devpass
+```
+
+`application-prod.properties`:
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/proddb
+spring.datasource.username=produser
+spring.datasource.password=prodpass
+```
+
+Activate a profile using the `spring.profiles.active` property:
+```properties
+spring.profiles.active=dev
+```
+
+Or set it as a JVM argument:
+```sh
+java -jar myapp.jar --spring.profiles.active=prod
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+### 12. How do you handle exceptions globally in a Spring Boot application? Explain the use of `@ControllerAdvice`.
+Spring Boot allows you to handle exceptions globally using the `@ControllerAdvice` annotation. This annotation is used to define a class that handles exceptions across all controllers.
+
+### Example
+```java
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+@ControllerAdvice
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+    
+    @ExceptionHandler(ResourceNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String handleResourceNotFoundException(ResourceNotFoundException ex) {
+        return ex.getMessage();
+    }
+    
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public String handleGenericException(Exception ex) {
+        return "An unexpected error occurred: " + ex.getMessage();
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+### 13. What is the use of `@ConfigurationProperties` in Spring Boot? How does it help in managing configuration?
+The `@ConfigurationProperties` annotation is used to bind external configuration properties to a Java class. It allows you to map properties from `application.properties` or `application.yml` files to a POJO.
+
+### Example
+Define a configuration properties class:
+```java
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@Component
+@ConfigurationProperties(prefix = "app")
+public class AppProperties {
+    private String name;
+    private String version;
+
+    // getters and setters
+}
+```
+
+`application.properties`:
+```properties
+app.name=MyApp
+app.version=1.0.0
+```
+
+Access the properties in a Spring component:
+```java
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class AppController {
+
+    @Autowired
+    private AppProperties appProperties;
+
+    @GetMapping("/info")
+    public String getAppInfo() {
+        return "Name: " + appProperties.getName() + ", Version: " + appProperties.getVersion();
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+### 14. How can you secure a Spring Boot application using Spring Security? Provide an example.
+Spring Security provides comprehensive security services for Java applications. It is highly customizable and can be used to secure a Spring Boot application.
+
+### Example
+Add the Spring Security dependency:
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+```
+
+Create a security configuration class:
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeRequests()
+                .antMatchers("/public/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+            .formLogin().permitAll()
+                .and()
+            .logout().permitAll();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
+
+### 15. Explain the concept of embedded servers in Spring Boot. How can you configure and use different embedded servers like Tomcat, Jetty, and Undertow?
+Spring Boot includes embedded servers, allowing you to run web applications without needing an external server. By default, Spring Boot uses Tomcat as the embedded server, but you can also use Jetty or Undertow.
+
+### Example
+To use Jetty instead of Tomcat, exclude the Tomcat dependency and include the Jetty dependency:
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jetty</artifactId>
+</dependency>
+```
+#### **[⬆ Back to Top](#level--spring-boot-core)**
+---
