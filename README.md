@@ -24,22 +24,22 @@ We've organized the questions into various topics to make it easier for you to n
 - How does SpringBoot manage dependencies?
 - What is a SpringBoot starter?
 
-### [Annotations](#spring-annotation)
+### [Annotations](#spring-boot-annotation)
 - Explain the use of `@SpringBootApplication`.
 - What is `@RestController` used for?
 - How does `@Autowired` work?
 
-### [Configuration](#spring-configuration)
+### [Configuration](#spring-boot-configuration)
 - How do you configure a SpringBoot application?
 - What is application.properties?
 - Explain the use of `@Configuration` and `@Bean`.
 
-### Data Access
+### [Data Access](#spring-boot-data-access)
 - What is Spring Data JPA?
 - How do you configure a data source in SpringBoot?
 - Explain the use of `@Repository`.
 
-### Security
+### [Security](#spring-boot-security)
 - How does Spring Security integrate with SpringBoot?
 - What is OAuth2 and how is it used with SpringBoot?
 - Explain the use of `@PreAuthorize`.
