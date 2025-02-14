@@ -24,12 +24,12 @@ We've organized the questions into various topics to make it easier for you to n
 - How does SpringBoot manage dependencies?
 - What is a SpringBoot starter?
 
-### Annotations
+### [Annotations](#spring-annotation)
 - Explain the use of `@SpringBootApplication`.
 - What is `@RestController` used for?
 - How does `@Autowired` work?
 
-### Configuration
+### [Configuration](#spring-configuration)
 - How do you configure a SpringBoot application?
 - What is application.properties?
 - Explain the use of `@Configuration` and `@Bean`.
