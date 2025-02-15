@@ -99,6 +99,27 @@ Happy coding and good luck with your interview preparation! 🚀
 | 14  | [How can you secure a Spring Boot application using Spring Security? Provide an example.](#14-how-can-you-secure-a-spring-boot-application-using-spring-security-provide-an-example) |
 | 15  | [Explain the concept of embedded servers in Spring Boot. How can you configure and use different embedded servers like Tomcat, Jetty, and Undertow?](#15-explain-the-concept-of-embedded-servers-in-spring-boot-how-can-you-configure-and-use-different-embedded-servers-like-tomcat-jetty-and-undertow) |
 
+## Spring Boot Annotations
+### Table of Contents
+| No. | Questions |
+| --- | --------- |
+| 1   | [What is the purpose of the `@SpringBootApplication` annotation in Spring Boot? Explain its components.](#1-what-is-the-purpose-of-the-springbootapplication-annotation-in-spring-boot-explain-its-components) |
+| 2   | [How does the `@RestController` annotation differ from the `@Controller` annotation in Spring Boot?](#2-how-does-the-restcontroller-annotation-differ-from-the-controller-annotation-in-spring-boot) |
+| 3   | [Explain the use of `@Autowired` in Spring Boot. How does it work, and what are its alternatives?](#3-explain-the-use-of-autowired-in-spring-boot-how-does-it-work-and-what-are-its-alternatives) |
+| 4   | [What is the role of the `@Configuration` annotation in Spring Boot? Can you provide an example?](#4-what-is-the-role-of-the-configuration-annotation-in-spring-boot-can-you-provide-an-example) |
+| 5   | [Describe the `@Value` annotation and its usage in Spring Boot applications.](#5-describe-the-value-annotation-and-its-usage-in-spring-boot-applications) |
+| 6   | [Can you explain the `@Component`, `@Service`, and `@Repository` annotations? How are they different from each other?](#6-can-you-explain-the-component-service-and-repository-annotations-how-are-they-different-from-each-other) |
+| 7   | [What is the `@EnableAutoConfiguration` annotation, and how does it function in a Spring Boot application?](#7-what-is-the-enableautoconfiguration-annotation-and-how-does-it-function-in-a-spring-boot-application) |
+| 8   | [Explain the purpose of the `@ComponentScan` annotation and how it is used in Spring Boot.](#8-explain-the-purpose-of-the-componentscan-annotation-and-how-it-is-used-in-spring-boot) |
+| 9   | [How does the `@Conditional` annotation work in Spring Boot? Provide an example of its usage.](#9-how-does-the-conditional-annotation-work-in-spring-boot-provide-an-example-of-its-usage) |
+| 10  | [What is the `@RequestMapping` annotation used for in Spring Boot? How does it differ from `@GetMapping`, `@PostMapping`, etc.?](#10-what-is-the-requestmapping-annotation-used-for-in-spring-boot-how-does-it-differ-from-getmapping-postmapping-etc) |
+| 11  | [Describe the `@Entity` annotation and its role in Spring Boot applications using JPA.](#11-describe-the-entity-annotation-and-its-role-in-spring-boot-applications-using-jpa) |
+| 12  | [What is the `@Transactional` annotation, and how is it used in Spring Boot applications?](#12-what-is-the-transactional-annotation-and-how-is-it-used-in-spring-boot-applications) |
+| 13  | [Explain the `@Bean` annotation and its usage in a Spring Boot application.](#13-explain-the-bean-annotation-and-its-usage-in-a-spring-boot-application) |
+| 14  | [How does the `@Profile` annotation work in Spring Boot? Provide an example of its usage.](#14-how-does-the-profile-annotation-work-in-spring-boot-provide-an-example-of-its-usage) |
+| 15  | [What is the `@SpringBootTest` annotation, and how is it used in writing tests for Spring Boot applications?](#15-what-is-the-springboottest-annotation-and-how-is-it-used-in-writing-tests-for-spring-boot-applications) |
+
+
 ## Spring Boot Basic Interview Questions and Answers
 ### 1. What is Spring Boot?
 
