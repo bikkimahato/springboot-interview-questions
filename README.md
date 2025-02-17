@@ -788,3 +788,135 @@ To use Jetty instead of Tomcat, exclude the Tomcat dependency and include the Je
 ```
 #### **[⬆ Back to Top](#level--spring-boot-core)**
 ---
+
+## Spring Boot Annotations Interview Questions and Answers
+### 1. What is the purpose of the `@SpringBootApplication` annotation in Spring Boot? Explain its components.
+
+The `@SpringBootApplication` annotation is a convenient annotation that combines three crucial annotations: `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan`. It is used to mark the main class of a Spring Boot application.
+
+Components:
+- `@Configuration`: Indicates that the class can be used by the Spring IoC container as a source of bean definitions.
+- `@EnableAutoConfiguration`: Tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings.
+- `@ComponentScan`: Enables component-scanning so that web controllers and other components you create will be automatically discovered and registered as beans in the Spring application context.
+
+Example:
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MySpringBootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringBootApplication.class, args);
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+---
+
+### 2. How does the `@RestController` annotation differ from the `@Controller` annotation in Spring Boot?
+
+The `@RestController` annotation is a specialized version of the `@Controller` annotation. It includes the `@Controller` and `@ResponseBody` annotations, meaning that it is a convenience annotation for creating RESTful web services.
+
+- `@Controller`: Used to define a controller class where `@RequestMapping` methods are used to map web requests to specific handler methods. It returns a view name which is resolved to an actual view.
+- `@RestController`: Used to create RESTful web services. It combines `@Controller` and `@ResponseBody`, meaning that it returns the response directly as JSON or XML instead of rendering a view.
+
+Example:
+```java
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MyRestController {
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello, World!";
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+---
+
+### 3. Explain the use of `@Autowired` in Spring Boot. How does it work, and what are its alternatives?
+
+`@Autowired` is used for automatic dependency injection. It allows Spring to resolve and inject collaborating beans into your bean. When `@Autowired` is used on a constructor, setter, or field, the Spring framework injects the required dependency.
+
+How it works:
+- Field Injection: Spring injects the dependency directly into the field.
+- Setter Injection: Spring injects the dependency via a setter method.
+- Constructor Injection: Spring injects the dependency via a constructor.
+
+Alternatives:
+- `@Inject` (from javax.inject): Similar to `@Autowired`, but it is part of the JSR-330 specification.
+- `@Resource` (from javax.annotation): Can be used for dependency injection and provides more control over the injection process.
+
+Example (Field Injection):
+```java
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyService {
+    @Autowired
+    private MyRepository myRepository;
+
+    public void doSomething() {
+        myRepository.save(new MyEntity());
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+---
+
+### 4. What is the role of the `@Configuration` annotation in Spring Boot? Can you provide an example?
+
+The `@Configuration` annotation indicates that the class has `@Bean` definition methods. Spring container uses this class to register beans and configure them using Spring's IoC container.
+
+Role:
+- It is used to define beans using `@Bean` annotated methods.
+- It helps in separating the configuration from the main application logic.
+
+Example:
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfig {
+    @Bean
+    public MyService myService() {
+        return new MyService();
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+---
+
+### 5. Describe the `@Value` annotation and its usage in Spring Boot applications.
+
+The `@Value` annotation is used to inject values into fields in Spring-managed beans. It can be used to inject values from property files, system properties, environment variables, and more.
+
+Usage:
+- Injecting values from application properties.
+- Injecting default values if the property is not found.
+- Injecting system properties or environment variables.
+
+Example:
+```java
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyComponent {
+    @Value("${my.property:default_value}")
+    private String myProperty;
+
+    public void displayProperty() {
+        System.out.println("Property value: " + myProperty);
+    }
+}
+```
+In this example, `${my.property:default_value}` means that the value of `my.property` is injected, and if it is not found, `default_value` is used.
+
+#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+---
