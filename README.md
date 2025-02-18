@@ -920,3 +920,145 @@ In this example, `${my.property:default_value}` means that the value of `my.prop
 
 #### **[⬆ Back to Top](#level--spring-boot-annotations)**
 ---
+
+#### 6. Can you explain the `@Component`, `@Service`, and `@Repository` annotations? How are they different from each other?
+
+The `@Component`, `@Service`, and `@Repository` annotations are all used to define beans in Spring, but they serve different purposes.
+
+- `@Component`: A generic stereotype for any Spring-managed component. It is the parent annotation for `@Service` and `@Repository`.
+- `@Service`: A specialization of `@Component` used to define service layer beans. It is used to annotate classes that perform service tasks, typically containing business logic.
+- `@Repository`: A specialization of `@Component` used to define data access layer beans. It is used to annotate classes that interact with the database and often involve CRUD operations.
+
+Example:
+```java
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
+
+@Component
+public class MyComponent {
+    public void performTask() {
+        System.out.println("Component task");
+    }
+}
+
+@Service
+public class MyService {
+    public void performService() {
+        System.out.println("Service task");
+    }
+}
+
+@Repository
+public class MyRepository {
+    public void save(Object entity) {
+        System.out.println("Saving entity");
+    }
+}
+```
+
+#### 7. What is the `@EnableAutoConfiguration` annotation, and how does it function in a Spring Boot application?
+
+The `@EnableAutoConfiguration` annotation tells Spring Boot to automatically configure your application based on the dependencies you have added. It enables auto-configuration, which attempts to guess and configure beans you are likely to need.
+
+Function:
+- It scans the classpath and configures beans for many common application tasks.
+- It reduces the need for explicit configuration by the developer.
+
+Example:
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+
+@EnableAutoConfiguration
+@ComponentScan
+public class MySpringBootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringBootApplication.class, args);
+    }
+}
+```
+In practice, `@SpringBootApplication` (which includes `@EnableAutoConfiguration`) is preferred over using `@EnableAutoConfiguration` directly.
+
+#### 8. Explain the purpose of the `@ComponentScan` annotation and how it is used in Spring Boot.
+
+The `@ComponentScan` annotation is used to specify the base packages to scan for Spring components. It tells Spring where to look for components, configurations, and services.
+
+Purpose:
+- It helps in discovering and registering beans with the Spring context.
+- It is typically used in conjunction with `@Configuration` or `@SpringBootApplication`.
+
+Example:
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@ComponentScan(basePackages = "com.example.myapp")
+public class MySpringBootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringBootApplication.class, args);
+    }
+}
+```
+
+#### 9. How does the `@Conditional` annotation work in Spring Boot? Provide an example of its usage.
+
+The `@Conditional` annotation is used to conditionally include a bean or configuration only if a certain condition is met. It is often used with custom conditions.
+
+Usage:
+- It allows beans to be registered conditionally based on the presence or absence of certain classes, properties, or other conditions.
+
+Example:
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class MyConfig {
+    @Bean
+    @Conditional(MyCondition.class)
+    public MyService myService() {
+        return new MyService();
+    }
+}
+
+public class MyCondition implements Condition {
+    @Override
+    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        return context.getEnvironment().containsProperty("my.property");
+    }
+}
+```
+In this example, `MyService` will only be registered if the property `my.property` is present in the environment.
+
+#### 10. What is the `@RequestMapping` annotation used for in Spring Boot? How does it differ from `@GetMapping`, `@PostMapping`, etc.?
+
+The `@RequestMapping` annotation is used to map HTTP requests to handler methods of MVC and REST controllers. It can be used at both the class and method levels.
+
+Differences:
+- `@RequestMapping`: General-purpose annotation that maps any HTTP request method (GET, POST, PUT, DELETE, etc.).
+- `@GetMapping`, `@PostMapping`, etc.: Specialized annotations that are shortcuts for `@RequestMapping(method = RequestMethod.GET)`, `@RequestMapping(method = RequestMethod.POST)`, etc.
+
+Example:
+```java
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MyController {
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String hello() {
+        return "Hello, World!";
+    }
+
+    @GetMapping("/greet")
+    public String greet() {
+        return "Greetings!";
+    }
+}
+```
