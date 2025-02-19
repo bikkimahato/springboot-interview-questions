@@ -1074,3 +1074,136 @@ public class MyController {
 ```
 #### **[⬆ Back to Top](#level--spring-boot-annotations)**
 ---
+
+### 11. Describe the `@Entity` annotation and its role in Spring Boot applications using JPA.
+
+The `@Entity` annotation is used to mark a class as a JPA entity. It indicates that the class is a persistent Java class and is mapped to a database table.
+
+Role:
+- It defines the entity and maps it to a database table.
+- It is used with other JPA annotations like `@Id`, `@Column`, `@Table`, etc., to define the entity's characteristics.
+
+Example:
+```java
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class MyEntity {
+    @Id
+    private Long id;
+    private String name;
+
+    // Getters and Setters
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+---
+
+### 12. What is the `@Transactional` annotation, and how is it used in Spring Boot applications?
+
+The `@Transactional` annotation is used to manage transaction boundaries in Spring applications. It indicates that the method or class should be executed within a transactional context.
+
+Usage:
+- It can be applied at the method or class level.
+- It ensures that the methods execute within a transaction, and if an exception occurs, the transaction is rolled back.
+
+Example:
+```java
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+public class MyService {
+    @Transactional
+    public void performTransaction() {
+        // Business logic that needs to be executed within a transaction
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+---
+
+### 13. Explain the `@Bean` annotation and its usage in a Spring Boot application.
+
+The `@Bean` annotation indicates that a method produces a bean to be managed by the Spring container. It is used within `@Configuration` classes to define beans.
+
+Usage:
+- It is used to declare a bean and its configuration details.
+- It provides flexibility in defining beans that are not automatically detected by component scanning.
+
+Example:
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfig {
+    @Bean
+    public MyService myService() {
+        return new MyService();
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+---
+
+### 14. How does the `@Profile` annotation work in Spring Boot? Provide an example of its usage.
+
+The `@Profile` annotation is used to indicate that a component or configuration is only active for specific profiles. It helps in managing different configurations for different environments (e.g., development, production).
+
+Usage:
+- It can be applied to `@Component` classes, `@Configuration` classes, or individual `@Bean` methods.
+- The active profile can be set using the `spring.profiles.active` property.
+
+Example:
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+
+@Configuration
+public class AppConfig {
+    @Bean
+    @Profile("dev")
+    public MyService devMyService() {
+        return new MyService("Development Configuration");
+    }
+
+    @Bean
+    @Profile("prod")
+    public MyService prodMyService() {
+        return new MyService("Production Configuration");
+    }
+}
+```
+In this example, `devMyService` bean will be active in the 'dev' profile, and `prodMyService` bean will be active in the 'prod' profile.
+
+#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+---
+
+### 15. What is the `@SpringBootTest` annotation, and how is it used in writing tests for Spring Boot applications?
+
+The `@SpringBootTest` annotation is used to create an application context for integration tests. It provides a comprehensive environment for testing Spring Boot applications, including auto-configuration, component scanning, and dependencies.
+
+Usage:
+- It is used to load the complete application context during tests.
+- It can be customized with parameters like `webEnvironment`, `classes`, `properties`, etc.
+
+Example:
+```java
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+public class MySpringBootTest {
+    @Test
+    public void contextLoads() {
+        // Test to verify the context loads successfully
+    }
+}
+```
+In this example, `@SpringBootTest` loads the full application context and verifies that it starts up correctly.
+```
+#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+---
