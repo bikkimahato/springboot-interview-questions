@@ -119,6 +119,8 @@ Happy coding and good luck with your interview preparation! 🚀
 | 14  | [How does the `@Profile` annotation work in Spring Boot? Provide an example of its usage.](#14-how-does-the-profile-annotation-work-in-spring-boot-provide-an-example-of-its-usage) |
 | 15  | [What is the `@SpringBootTest` annotation, and how is it used in writing tests for Spring Boot applications?](#15-what-is-the-springboottest-annotation-and-how-is-it-used-in-writing-tests-for-spring-boot-applications) |
 
+## Spring Boot Configuration
+### Table of Contents
 
 ## Spring Boot Basic Interview Questions and Answers
 ### 1. What is Spring Boot?
