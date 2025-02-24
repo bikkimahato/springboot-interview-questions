@@ -44,12 +44,12 @@ We've organized the questions into various topics to make it easier for you to n
 - What is OAuth2 and how is it used with SpringBoot?
 - Explain the use of `@PreAuthorize`.
 
-### Testing
+### [Testing](#spring-boot-security)
 - How do you write unit tests for SpringBoot applications?
 - What is the role of `@SpringBootTest`?
 - Explain the use of MockMvc in SpringBoot tests.
 
-### Advanced Topics
+### [Advanced Topics](#spring-boot-advanced)
 - What is Spring Cloud?
 - How do you implement microservices with SpringBoot?
 - Explain the use of SpringBoot Actuator.
