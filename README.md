@@ -128,6 +128,11 @@ Happy coding and good luck with your interview preparation! 🚀
 | 3   | [What is the purpose of the `@Configuration` annotation in Spring Boot?](#3-what-is-the-purpose-of-the-configuration-annotation-in-spring-boot) |
 | 4   | [Explain the concept of auto-configuration in Spring Boot. How does Spring Boot automatically configure your application based on the dependencies present in the classpath?](#4-explain-the-concept-of-auto-configuration-in-spring-boot-how-does-spring-boot-automatically-configure-your-application-based-on-the-dependencies-present-in-the-classpath) |
 | 5   | [What is `@Value` annotation and how do you use it to inject properties in Spring Boot?](#5-what-is-value-annotation-and-how-do-you-use-it-to-inject-properties-in-spring-boot) |
+| 6   | [How can you externalize configuration in Spring Boot and what are the different ways to do it?](#6-how-can-you-externalize-configuration-in-spring-boot-and-what-are-the-different-ways-to-do-it) |
+| 7   | [Explain the difference between `@Configuration` and `@Component`. When would you use one over the other?](#7-explain-the-difference-between-configuration-and-component-when-would-you-use-one-over-the-other) |
+| 8   | [What is the purpose of the `@EnableAutoConfiguration` annotation?](#8-what-is-the-purpose-of-the-enableautoconfiguration-annotation) |
+| 9   | [How do you create and use custom configuration properties in Spring Boot?](#9-how-do-you-create-and-use-custom-configuration-properties-in-spring-boot) |
+| 10  | [What are Spring Profiles and how do you use them to manage different configurations for different environments?](#10-what-are-spring-profiles-and-how-do-you-use-them-to-manage-different-configurations-for-different-environments) |
 
 ## Spring Boot Basic Interview Questions and Answers
 ### 1. What is Spring Boot?
