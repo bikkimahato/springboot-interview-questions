@@ -119,6 +119,15 @@ Happy coding and good luck with your interview preparation! 🚀
 | 14  | [How does the `@Profile` annotation work in Spring Boot? Provide an example of its usage.](#14-how-does-the-profile-annotation-work-in-spring-boot-provide-an-example-of-its-usage) |
 | 15  | [What is the `@SpringBootTest` annotation, and how is it used in writing tests for Spring Boot applications?](#15-what-is-the-springboottest-annotation-and-how-is-it-used-in-writing-tests-for-spring-boot-applications) |
 
+## Spring Boot Configurations
+### Table of Contents
+| No. | Questions |
+| --- | --------- |
+| 1   | [What is Spring Boot and how does it differ from the traditional Spring Framework?](#1-what-is-spring-boot-and-how-does-it-differ-from-the-traditional-spring-framework) |
+| 2   | [How do you define and use properties in Spring Boot? Explain the use of `application.properties` and `application.yml`.](#2-how-do-you-define-and-use-properties-in-spring-boot-explain-the-use-of-applicationproperties-and-applicationyml) |
+| 3   | [What is the purpose of the `@Configuration` annotation in Spring Boot?](#3-what-is-the-purpose-of-the-configuration-annotation-in-spring-boot) |
+| 4   | [Explain the concept of auto-configuration in Spring Boot. How does Spring Boot automatically configure your application based on the dependencies present in the classpath?](#4-explain-the-concept-of-auto-configuration-in-spring-boot-how-does-spring-boot-automatically-configure-your-application-based-on-the-dependencies-present-in-the-classpath) |
+| 5   | [What is `@Value` annotation and how do you use it to inject properties in Spring Boot?](#5-what-is-value-annotation-and-how-do-you-use-it-to-inject-properties-in-spring-boot) |
 
 ## Spring Boot Basic Interview Questions and Answers
 ### 1. What is Spring Boot?
