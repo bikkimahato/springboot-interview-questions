@@ -133,6 +133,11 @@ Happy coding and good luck with your interview preparation! 🚀
 | 8   | [What is the purpose of the `@EnableAutoConfiguration` annotation?](#8-what-is-the-purpose-of-the-enableautoconfiguration-annotation) |
 | 9   | [How do you create and use custom configuration properties in Spring Boot?](#9-how-do-you-create-and-use-custom-configuration-properties-in-spring-boot) |
 | 10  | [What are Spring Profiles and how do you use them to manage different configurations for different environments?](#10-what-are-spring-profiles-and-how-do-you-use-them-to-manage-different-configurations-for-different-environments) |
+| 11  | [How do you secure sensitive data in your configuration files, such as passwords and API keys?](#11-how-do-you-secure-sensitive-data-in-your-configuration-files-such-as-passwords-and-api-keys) |
+| 12  | [Explain how to configure a Spring Boot application to connect to a database.](#12-explain-how-to-configure-a-spring-boot-application-to-connect-to-a-database) |
+| 13  | [What is `spring-boot-starter` and how does it simplify dependency management?](#13-what-is-spring-boot-starter-and-how-does-it-simplify-dependency-management) |
+| 14  | [How do you create and register a custom `BeanPostProcessor` in Spring Boot?](#14-how-do-you-create-and-register-a-custom-beanpostprocessor-in-spring-boot) |
+| 15  | [How does Spring Boot handle logging and how can you configure it?](#15-how-does-spring-boot-handle-logging-and-how-can-you-configure-it) |
 
 ## Spring Boot Basic Interview Questions and Answers
 ### 1. What is Spring Boot?
