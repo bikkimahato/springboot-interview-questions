@@ -1226,3 +1226,145 @@ In this example, `@SpringBootTest` loads the full application context and verifi
 ```
 #### **[⬆ Back to Top](#level--spring-boot-annotations)**
 ---
+
+## Spring Boot Core Interview Questions and Answers
+### 1. What is Spring Boot and how does it differ from the traditional Spring Framework?
+
+**Answer:**
+Spring Boot is an extension of the Spring Framework that aims to simplify the development of production-ready applications. It provides a set of conventions and default configurations to reduce boilerplate code and speed up the development process.
+
+### Differences:
+- **Auto-Configuration:** Spring Boot automatically configures your application based on the dependencies present in the classpath. In contrast, the traditional Spring Framework requires explicit configuration.
+- **Starter POMs:** Spring Boot provides starter dependencies to simplify dependency management. Traditional Spring requires manual dependency management.
+- **Embedded Servers:** Spring Boot can embed web servers like Tomcat, Jetty, or Undertow, allowing you to run applications as standalone Java applications. Traditional Spring applications usually require an external web server.
+- **Production-Ready Features:** Spring Boot includes features like metrics, health checks, and externalized configuration to support production environments.
+
+### Example:
+```java
+// Traditional Spring Configuration
+@Configuration
+public class AppConfig {
+    @Bean
+    public MyService myService() {
+        return new MyServiceImpl();
+    }
+}
+
+// Spring Boot Configuration
+// No explicit configuration needed if MyServiceImpl is a component
+@Service
+public class MyServiceImpl implements MyService { }
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 2. How do you define and use properties in Spring Boot? Explain the use of `application.properties` and `application.yml`.
+
+**Answer:**
+In Spring Boot, you can define properties in two main files: `application.properties` and `application.yml`. These files are used to externalize configuration and can be placed in the `src/main/resources` directory.
+
+### `application.properties` Example:
+```properties
+server.port=8081
+spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+spring.datasource.username=root
+spring.datasource.password=secret
+```
+
+### `application.yml` Example:
+```yaml
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb
+    username: root
+    password: secret
+```
+
+### Using Properties in Code:
+You can use the `@Value` annotation to inject properties into your Spring-managed beans.
+
+```java
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyComponent {
+
+    @Value("${server.port}")
+    private int serverPort;
+
+    @Value("${spring.datasource.username}")
+    private String dbUsername;
+
+    // getters and setters
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 3. What is the purpose of the `@Configuration` annotation in Spring Boot?
+
+**Answer:**
+The `@Configuration` annotation in Spring Boot indicates that the class has `@Bean` definition methods. Spring Boot will process this class to generate Spring Beans to be managed by the Spring container.
+
+### Example:
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public MyService myService() {
+        return new MyServiceImpl();
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 4. Explain the concept of auto-configuration in Spring Boot. How does Spring Boot automatically configure your application based on the dependencies present in the classpath?
+
+**Answer:**
+Spring Boot's auto-configuration mechanism automatically configures your application based on the dependencies present in the classpath. It uses `@EnableAutoConfiguration` and a set of conditional annotations (`@ConditionalOnClass`, `@ConditionalOnMissingBean`, etc.) to apply sensible defaults and configurations for the application.
+
+### Example:
+When you add `spring-boot-starter-web` to your project, Spring Boot auto-configures a Tomcat server and the necessary Spring MVC components.
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 5. What is `@Value` annotation and how do you use it to inject properties in Spring Boot?
+
+**Answer:**
+The `@Value` annotation is used to inject values into fields of Spring-managed beans. These values can come from property files, system properties, or environment variables.
+
+### Example:
+```java
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyComponent {
+
+    @Value("${server.port}")
+    private int serverPort;
+
+    @Value("${spring.datasource.username}")
+    private String dbUsername;
+
+    // getters and setters
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
