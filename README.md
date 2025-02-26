@@ -1368,3 +1368,126 @@ public class MyComponent {
 ```
 #### **[⬆ Back to Top](#level--spring-boot-configurations)**
 ---
+
+### 6. How can you externalize configuration in Spring Boot and what are the different ways to do it?
+
+**Answer:**
+Externalizing configuration means separating configuration from the code. Spring Boot provides several ways to externalize configuration:
+
+1. **Properties and YAML Files:** `application.properties` or `application.yml`.
+2. **Environment Variables:** Using environment variables to override configuration properties.
+3. **Command-Line Arguments:** Passing properties as arguments when running the application.
+4. **Configuration Server:** Using Spring Cloud Config Server to manage configuration centrally.
+
+### Example:
+```properties
+# application.properties
+app.name=MyApp
+```
+
+### Command-Line Argument:
+```bash
+java -jar myapp.jar --app.name=MyApp
+```
+
+### Environment Variable:
+```bash
+export APP_NAME=MyApp
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 7. Explain the difference between `@Configuration` and `@Component`. When would you use one over the other?
+
+**Answer:**
+- **`@Configuration`:** Indicates that the class contains one or more `@Bean` methods. It is used for defining beans and their dependencies.
+- **`@Component`:** Indicates that an annotated class is a Spring-managed component. It is a generic stereotype for any Spring-managed component.
+
+### Example:
+```java
+// @Configuration example
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public MyService myService() {
+        return new MyServiceImpl();
+    }
+}
+
+// @Component example
+@Component
+public class MyServiceImpl implements MyService { }
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 8. What is the purpose of the `@EnableAutoConfiguration` annotation?
+
+**Answer:**
+The `@EnableAutoConfiguration` annotation tells Spring Boot to automatically configure your application based on the dependencies present in the classpath. It is typically used in the main application class.
+
+### Example:
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MyApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApplication.class, args);
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 9. How do you create and use custom configuration properties in Spring Boot?
+
+**Answer:**
+You can create custom configuration properties by defining a properties class and annotating it with `@ConfigurationProperties`. You also need to enable this configuration properties class in your main application class.
+
+### Example:
+```properties
+# application.properties
+myapp.custom.property=CustomValue
+```
+
+```java
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@Component
+@ConfigurationProperties(prefix = "myapp.custom")
+public class CustomProperties {
+
+    private String property;
+
+    // getters and setters
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 10. What are Spring Profiles and how do you use them to manage different configurations for different environments?
+
+**Answer:**
+Spring Profiles allow you to define different configurations for different environments (e.g., development, testing, production). You can use profiles to load specific beans or properties based on the active profile.
+
+### Example:
+```properties
+# application-dev.properties
+server.port=8081
+
+# application-prod.properties
+server.port=8082
+```
+
+### Activating a Profile:
+You can activate a profile using the `spring.profiles.active` property.
+
+```bash
+java -jar myapp.jar --spring.profiles.active=dev
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
