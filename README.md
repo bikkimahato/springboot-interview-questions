@@ -1491,3 +1491,145 @@ java -jar myapp.jar --spring.profiles.active=dev
 ```
 #### **[⬆ Back to Top](#level--spring-boot-configurations)**
 ---
+
+### 11. How do you secure sensitive data in your configuration files, such as passwords and API keys?
+
+**Answer:**
+To secure sensitive data, you can use the following approaches:
+
+1. **Environment Variables:** Store sensitive data in environment variables and reference them in your configuration.
+2. **Encrypted Configuration:** Use tools like Jasypt to encrypt properties in your configuration files.
+3. **Configuration Server:** Store sensitive data in a secure configuration server like Spring Cloud Config Server.
+
+### Example using Jasypt:
+```properties
+# application.properties
+spring.datasource.password=ENC(encryptedPassword)
+```
+
+```java
+import org.jasypt.util.text.BasicTextEncryptor;
+
+public class Encryptor {
+    public static void main(String[] args) {
+        BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
+        textEncryptor.setPassword("secret-key");
+        String encryptedPassword = textEncryptor.encrypt("plainPassword");
+        System.out.println("Encrypted Password: " + encryptedPassword);
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 12. Explain how to configure a Spring Boot application to connect to a database.
+
+**Answer:**
+To configure a Spring Boot application to connect to a database, you need to add the necessary dependencies and provide the database connection properties.
+
+### Example:
+```xml
+<!-- Add MySQL dependency in pom.xml -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <scope>runtime</scope>
+</dependency>
+```
+
+```properties
+# application.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+spring.datasource.username=root
+spring.datasource.password=secret
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 13. What is `spring-boot-starter` and how does it simplify dependency management?
+
+**Answer:**
+`spring-boot-starter` is a set of convenient dependency descriptors provided by Spring Boot. Each starter includes a curated set of dependencies that you can use to get started quickly. Starters simplify dependency management by aggregating common dependencies into a single, easy-to-use dependency.
+
+### Example:
+```xml
+<!-- Add the web starter in pom.xml -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 14. How do you create and register a custom `BeanPostProcessor` in Spring Boot?
+
+**Answer:**
+A `BeanPostProcessor` allows you to intercept bean creation and perform custom logic before and after the initialization of a bean. You need to implement the `BeanPostProcessor` interface and register it as a Spring bean.
+
+### Example:
+```java
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
+
+@Component
+public class CustomBeanPostProcessor implements BeanPostProcessor {
+
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        // Custom logic before bean initialization
+        return bean;
+    }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        // Custom logic after bean initialization
+        return bean;
+    }
+}
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
+
+### 15. How does Spring Boot handle logging and how can you configure it?
+
+**Answer:**
+Spring Boot uses `Spring Boot Logging` for logging, which is a combination of SLF4J and Logback. It provides default configurations and allows you to customize logging settings using properties or XML configuration.
+
+### Example:
+```properties
+# application.properties
+logging.level.root=INFO
+logging.level.com.myapp=DEBUG
+logging.file.name=app.log
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
+```
+
+### Custom Logback Configuration:
+You can create a `logback-spring.xml` file in the `src/main/resources` directory for advanced logging configurations.
+
+```xml
+<configuration>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>app.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.myapp" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
+```
+#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+---
