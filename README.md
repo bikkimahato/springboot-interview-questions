@@ -139,6 +139,15 @@ Happy coding and good luck with your interview preparation! 🚀
 | 14  | [How do you create and register a custom `BeanPostProcessor` in Spring Boot?](#14-how-do-you-create-and-register-a-custom-beanpostprocessor-in-spring-boot) |
 | 15  | [How does Spring Boot handle logging and how can you configure it?](#15-how-does-spring-boot-handle-logging-and-how-can-you-configure-it) |
 
+## Spring Boot Data Access
+| No. | Questions |
+| --- | --------- |
+| 1   | [What is Spring Data JPA and how does it simplify data access in Spring Boot applications?](#1-what-is-spring-data-jpa-and-how-does-it-simplify-data-access-in-spring-boot-applications) |
+| 2   | [Can you explain the difference between CrudRepository, PagingAndSortingRepository, and JpaRepository in Spring Data JPA?](#2-can-you-explain-the-difference-between-crudrepository-pagingandsortingrepository-and-jparepository-in-spring-data-jpa) |
+| 3   | [How do you configure a Spring Boot application to connect to a relational database?](#3-how-do-you-configure-a-spring-boot-application-to-connect-to-a-relational-database) |
+| 4   | [What is the purpose of the @Entity annotation in Spring Data JPA?](#4-what-is-the-purpose-of-the-entity-annotation-in-spring-data-jpa) |
+| 5   | [How do you handle transactions in Spring Boot?](#5-how-do-you-handle-transactions-in-spring-boot) |
+
 ## Spring Boot Basic Interview Questions and Answers
 ### 1. What is Spring Boot?
 
