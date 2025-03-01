@@ -147,6 +147,11 @@ Happy coding and good luck with your interview preparation! 🚀
 | 3   | [How do you configure a Spring Boot application to connect to a relational database?](#3-how-do-you-configure-a-spring-boot-application-to-connect-to-a-relational-database) |
 | 4   | [What is the purpose of the @Entity annotation in Spring Data JPA?](#4-what-is-the-purpose-of-the-entity-annotation-in-spring-data-jpa) |
 | 5   | [How do you handle transactions in Spring Boot?](#5-how-do-you-handle-transactions-in-spring-boot) |
+| 6   | [What are some common strategies for handling database migrations in Spring Boot?](#6-what-are-some-common-strategies-for-handling-database-migrations-in-spring-boot) |
+| 7   | [How would you implement a custom query method in a Spring Data JPA repository?](#7-how-would-you-implement-a-custom-query-method-in-a-spring-data-jpa-repository) |
+| 8   | [What is the difference between EntityManager and Hibernate Session in Spring Boot?](#8-what-is-the-difference-between-entitymanager-and-hibernate-session-in-spring-boot) |
+| 9   | [Can you explain the purpose and usage of @Modifying and @Query annotations in Spring Data JPA?](#9-can-you-explain-the-purpose-and-usage-of-modifying-and-query-annotations-in-spring-data-jpa) |
+| 10  | [How do you implement pagination and sorting in a Spring Boot application?](#10-how-do-you-implement-pagination-and-sorting-in-a-spring-boot-application) |
 
 ## Spring Boot Basic Interview Questions and Answers
 ### 1. What is Spring Boot?
