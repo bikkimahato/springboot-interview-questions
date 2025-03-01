@@ -152,6 +152,11 @@ Happy coding and good luck with your interview preparation! 🚀
 | 8   | [What is the difference between EntityManager and Hibernate Session in Spring Boot?](#8-what-is-the-difference-between-entitymanager-and-hibernate-session-in-spring-boot) |
 | 9   | [Can you explain the purpose and usage of @Modifying and @Query annotations in Spring Data JPA?](#9-can-you-explain-the-purpose-and-usage-of-modifying-and-query-annotations-in-spring-data-jpa) |
 | 10  | [How do you implement pagination and sorting in a Spring Boot application?](#10-how-do-you-implement-pagination-and-sorting-in-a-spring-boot-application) |
+| 11  | [What is the N+1 selects problem in JPA, and how do you solve it in Spring Boot?](#11-what-is-the-n+1-selects-problem-in-jpa-and-how-do-you-solve-it-in-spring-boot) |
+| 12  | [How do you manage database connections in a Spring Boot application?](#12-how-do-you-manage-database-connections-in-a-spring-boot-application) |
+| 13  | [What is the difference between eager and lazy fetching in JPA?](#13-what-is-the-difference-between-eager-and-lazy-fetching-in-jpa) |
+| 14  | [How do you handle optimistic locking in JPA?](#14-how-do-you-handle-optimistic-locking-in-jpa) |
+| 15  | [What are some best practices for designing and maintaining Spring Data JPA repositories?](#15-what-are-some-best-practices-for-designing-and-maintaining-spring-data-jpa-repositories) |
 
 ## Spring Boot Basic Interview Questions and Answers
 ### 1. What is Spring Boot?
