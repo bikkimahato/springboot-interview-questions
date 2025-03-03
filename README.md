@@ -176,7 +176,7 @@ public class MySpringBootApplication {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-basic)**
+#### **[⬆ Back to Top](#spring-boot-basic)**
 ---
 
 ### 2. What are the main features of Spring Boot?
@@ -204,7 +204,7 @@ public class MyAutoConfigurationApp {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-basic)**
+#### **[⬆ Back to Top](#spring-boot-basic)**
 ---
 
 ### 3. Explain the Spring Boot architecture.
@@ -253,7 +253,7 @@ public class MyController {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-basic)**
+#### **[⬆ Back to Top](#spring-boot-basic)**
 ---
 
 ### 4. What is the purpose of the `@SpringBootApplication` annotation?
@@ -275,7 +275,7 @@ public class MySpringBootApplication {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-basic)**
+#### **[⬆ Back to Top](#spring-boot-basic)**
 ---
 
 ### 5. How does Spring Boot simplify dependency management?
@@ -293,7 +293,7 @@ Spring Boot simplifies dependency management by providing a set of "starter" dep
 
 With this starter, you get all the necessary dependencies for building a web application, including Spring MVC, Jackson for JSON binding, and an embedded Tomcat server.
 
-#### **[⬆ Back to Top](#level--spring-boot-basic)**
+#### **[⬆ Back to Top](#spring-boot-basic)**
 ---
 
 ### 6. What are Spring Boot Starters and how do they help in development?
@@ -314,7 +314,7 @@ Spring Boot Starters are dependency descriptors that can be added to your projec
     <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 ```
-#### **[⬆ Back to Top](#level--spring-boot-basic)**
+#### **[⬆ Back to Top](#spring-boot-basic)**
 ---
 
 ### 7. Explain the concept of "convention over configuration" in Spring Boot.
@@ -324,7 +324,7 @@ Spring Boot Starters are dependency descriptors that can be added to your projec
 **Example:**
 When you add `spring-boot-starter-web` to your project, Spring Boot assumes you want to create a web application and automatically configures Tomcat as the default server.
 
-#### **[⬆ Back to Top](#level--spring-boot-basic)**
+#### **[⬆ Back to Top](#spring-boot-basic)**
 ---
 
 ### 8. How can you create a Spring Boot application using Spring Initializr?
@@ -337,7 +337,7 @@ Spring Initializr is a web-based tool provided by Spring to bootstrap a new Spri
 3. Choose dependencies you want to include.
 4. Click "Generate" to download the project.
 
-#### **[⬆ Back to Top](#level--spring-boot-basic)**
+#### **[⬆ Back to Top](#spring-boot-basic)**
 ---
 
 ### 9. What is the difference between the `application.properties` and `application.yml` files?
@@ -361,7 +361,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/mydb
 ```
-#### **[⬆ Back to Top](#level--spring-boot-basic)**
+#### **[⬆ Back to Top](#spring-boot-basic)**
 ---
 
 ### 10. How do you define a custom configuration in Spring Boot?
@@ -385,7 +385,7 @@ public class MyCustomConfiguration {
 
 In this example, `MyService` is a custom bean that is defined in the configuration class.
 
-#### **[⬆ Back to Top](#level--spring-boot-basic)**
+#### **[⬆ Back to Top](#spring-boot-basic)**
 ---
 
 ## Spring Boot Core Interview Questions and Answers
@@ -424,7 +424,7 @@ class MyController {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 2. Explain the concept of auto-configuration in Spring Boot. How does it work and how can you customize it?
@@ -451,7 +451,7 @@ public class MySpringBootApplication {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 3. What are Spring Boot Starters and how do they help in building Spring Boot applications?
@@ -469,7 +469,7 @@ To create a web application, you can add the `spring-boot-starter-web` dependenc
 
 This starter includes dependencies for Spring MVC, Jackson for JSON processing, and an embedded Tomcat server.
 
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 4. How does Spring Boot handle externalized configuration? Explain the role of `application.properties` and `application.yml`.
@@ -494,7 +494,7 @@ spring:
     username: root
     password: secret
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ## 5. What is Spring Boot Actuator? What are some of the key endpoints provided by Actuator?
@@ -516,7 +516,7 @@ To enable Actuator, add the following dependency:
 - `/actuator/metrics`: Exposes various metrics about the application.
 - `/actuator/env`: Displays properties from the `Environment`.
 
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 6. How can you enable and use Spring Boot DevTools in your application? What are its benefits?
@@ -538,7 +538,7 @@ Add the following dependency to your `pom.xml`:
 - **Live Reload**: Automatically refreshes the browser when resources change.
 - **Configurations**: Provides development-time configurations, such as disabling caching.
 
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 7. Explain the difference between `@RestController` and `@Controller` in Spring Boot.
@@ -570,7 +570,7 @@ public class MyRestController {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ## 8. How does Spring Boot manage dependencies? Explain the role of the `spring-boot-starter-parent` in dependency management.
@@ -596,7 +596,7 @@ In your `pom.xml`:
     </dependency>
 </dependencies>
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 9. What is the purpose of `@SpringBootApplication` annotation? How does it work internally?
@@ -618,7 +618,7 @@ public class MySpringBootApplication {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 10. How can you configure a Spring Boot application to connect to a database? What are some common properties that need to be set?
@@ -646,7 +646,7 @@ spring:
     hibernate:
       ddl-auto: update
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 11. What are Spring Boot profiles and how do you use them to manage different environments?
@@ -678,7 +678,7 @@ Or set it as a JVM argument:
 ```sh
 java -jar myapp.jar --spring.profiles.active=prod
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 12. How do you handle exceptions globally in a Spring Boot application? Explain the use of `@ControllerAdvice`.
@@ -708,7 +708,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 13. What is the use of `@ConfigurationProperties` in Spring Boot? How does it help in managing configuration?
@@ -754,7 +754,7 @@ public class AppController {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 14. How can you secure a Spring Boot application using Spring Security? Provide an example.
@@ -799,7 +799,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ### 15. Explain the concept of embedded servers in Spring Boot. How can you configure and use different embedded servers like Tomcat, Jetty, and Undertow?
@@ -824,7 +824,7 @@ To use Jetty instead of Tomcat, exclude the Tomcat dependency and include the Je
     <artifactId>spring-boot-starter-jetty</artifactId>
 </dependency>
 ```
-#### **[⬆ Back to Top](#level--spring-boot-core)**
+#### **[⬆ Back to Top](#spring-boot-core)**
 ---
 
 ## Spring Boot Annotations Interview Questions and Answers
@@ -849,7 +849,7 @@ public class MySpringBootApplication {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 2. How does the `@RestController` annotation differ from the `@Controller` annotation in Spring Boot?
@@ -872,7 +872,7 @@ public class MyRestController {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 3. Explain the use of `@Autowired` in Spring Boot. How does it work, and what are its alternatives?
@@ -903,7 +903,7 @@ public class MyService {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 4. What is the role of the `@Configuration` annotation in Spring Boot? Can you provide an example?
@@ -927,7 +927,7 @@ public class AppConfig {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 5. Describe the `@Value` annotation and its usage in Spring Boot applications.
@@ -956,7 +956,7 @@ public class MyComponent {
 ```
 In this example, `${my.property:default_value}` means that the value of `my.property` is injected, and if it is not found, `default_value` is used.
 
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 6. Can you explain the `@Component`, `@Service`, and `@Repository` annotations? How are they different from each other?
@@ -994,7 +994,7 @@ public class MyRepository {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 7. What is the `@EnableAutoConfiguration` annotation, and how does it function in a Spring Boot application?
@@ -1021,7 +1021,7 @@ public class MySpringBootApplication {
 ```
 In practice, `@SpringBootApplication` (which includes `@EnableAutoConfiguration`) is preferred over using `@EnableAutoConfiguration` directly.
 
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 8. Explain the purpose of the `@ComponentScan` annotation and how it is used in Spring Boot.
@@ -1046,7 +1046,7 @@ public class MySpringBootApplication {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 9. How does the `@Conditional` annotation work in Spring Boot? Provide an example of its usage.
@@ -1080,7 +1080,7 @@ public class MyCondition implements Condition {
 ```
 In this example, `MyService` will only be registered if the property `my.property` is present in the environment.
 
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 10. What is the `@RequestMapping` annotation used for in Spring Boot? How does it differ from `@GetMapping`, `@PostMapping`, etc.?
@@ -1110,7 +1110,7 @@ public class MyController {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 11. Describe the `@Entity` annotation and its role in Spring Boot applications using JPA.
@@ -1135,7 +1135,7 @@ public class MyEntity {
     // Getters and Setters
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 12. What is the `@Transactional` annotation, and how is it used in Spring Boot applications?
@@ -1159,7 +1159,7 @@ public class MyService {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 13. Explain the `@Bean` annotation and its usage in a Spring Boot application.
@@ -1183,7 +1183,7 @@ public class AppConfig {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 14. How does the `@Profile` annotation work in Spring Boot? Provide an example of its usage.
@@ -1217,7 +1217,7 @@ public class AppConfig {
 ```
 In this example, `devMyService` bean will be active in the 'dev' profile, and `prodMyService` bean will be active in the 'prod' profile.
 
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ### 15. What is the `@SpringBootTest` annotation, and how is it used in writing tests for Spring Boot applications?
@@ -1242,8 +1242,8 @@ public class MySpringBootTest {
 }
 ```
 In this example, `@SpringBootTest` loads the full application context and verifies that it starts up correctly.
-```
-#### **[⬆ Back to Top](#level--spring-boot-annotations)**
+
+#### **[⬆ Back to Top](#spring-boot-annotations)**
 ---
 
 ## Spring Boot Core Interview Questions and Answers
@@ -1274,7 +1274,7 @@ public class AppConfig {
 @Service
 public class MyServiceImpl implements MyService { }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 2. How do you define and use properties in Spring Boot? Explain the use of `application.properties` and `application.yml`.
@@ -1321,7 +1321,7 @@ public class MyComponent {
     // getters and setters
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 3. What is the purpose of the `@Configuration` annotation in Spring Boot?
@@ -1343,7 +1343,7 @@ public class AppConfig {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 4. Explain the concept of auto-configuration in Spring Boot. How does Spring Boot automatically configure your application based on the dependencies present in the classpath?
@@ -1360,7 +1360,7 @@ When you add `spring-boot-starter-web` to your project, Spring Boot auto-configu
     <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 5. What is `@Value` annotation and how do you use it to inject properties in Spring Boot?
@@ -1385,7 +1385,7 @@ public class MyComponent {
     // getters and setters
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 6. How can you externalize configuration in Spring Boot and what are the different ways to do it?
@@ -1413,7 +1413,7 @@ java -jar myapp.jar --app.name=MyApp
 ```bash
 export APP_NAME=MyApp
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 7. Explain the difference between `@Configuration` and `@Component`. When would you use one over the other?
@@ -1438,7 +1438,7 @@ public class AppConfig {
 @Component
 public class MyServiceImpl implements MyService { }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 8. What is the purpose of the `@EnableAutoConfiguration` annotation?
@@ -1458,7 +1458,7 @@ public class MyApplication {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 9. How do you create and use custom configuration properties in Spring Boot?
@@ -1485,7 +1485,7 @@ public class CustomProperties {
     // getters and setters
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 10. What are Spring Profiles and how do you use them to manage different configurations for different environments?
@@ -1508,7 +1508,7 @@ You can activate a profile using the `spring.profiles.active` property.
 ```bash
 java -jar myapp.jar --spring.profiles.active=dev
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 11. How do you secure sensitive data in your configuration files, such as passwords and API keys?
@@ -1538,7 +1538,7 @@ public class Encryptor {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 12. Explain how to configure a Spring Boot application to connect to a database.
@@ -1565,7 +1565,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 13. What is `spring-boot-starter` and how does it simplify dependency management?
@@ -1581,7 +1581,7 @@ spring.jpa.show-sql=true
     <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 14. How do you create and register a custom `BeanPostProcessor` in Spring Boot?
@@ -1611,7 +1611,7 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
     }
 }
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
 
 ### 15. How does Spring Boot handle logging and how can you configure it?
@@ -1650,5 +1650,5 @@ You can create a `logback-spring.xml` file in the `src/main/resources` directory
     </root>
 </configuration>
 ```
-#### **[⬆ Back to Top](#level--spring-boot-configurations)**
+#### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
