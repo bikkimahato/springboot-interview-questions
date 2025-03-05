@@ -1652,3 +1652,146 @@ You can create a `logback-spring.xml` file in the `src/main/resources` directory
 ```
 #### **[⬆ Back to Top](#spring-boot-configurations)**
 ---
+
+## Spring Boot Data Access Interview Questions and Answers
+### 1. What is Spring Data JPA and how does it simplify data access in Spring Boot applications?
+Spring Data JPA is a part of the larger Spring Data family, which aims to make it easier to work with data access technologies. It provides a repository abstraction over JPA (Java Persistence API) and makes it easier to implement data access layers.
+
+### Advantages:
+1. **Boilerplate Reduction**: It reduces the amount of boilerplate code needed for database operations.
+2. **Repository Pattern**: Provides a repository pattern with CRUD operations out-of-the-box.
+3. **Query Methods**: Supports the creation of query methods directly from the method names.
+4. **Pagination and Sorting**: Built-in support for pagination and sorting.
+5. **Auditing**: Supports auditing and versioning of entities.
+
+### Example:
+```java
+// Entity class
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String email;
+
+    // getters and setters
+}
+
+// Repository Interface
+public interface UserRepository extends JpaRepository<User, Long> {
+    List<User> findByName(String name);
+}
+```
+
+In this example, `UserRepository` extends `JpaRepository`, which provides basic CRUD operations. The `findByName` method is automatically implemented by Spring Data JPA.
+
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 2. Can you explain the difference between CrudRepository, PagingAndSortingRepository, and JpaRepository in Spring Data JPA?
+### CrudRepository:
+- **Purpose**: Basic CRUD operations (Create, Read, Update, Delete).
+- **Methods**: save, findAll, findById, deleteById, etc.
+
+### PagingAndSortingRepository:
+- **Purpose**: Extends `CrudRepository` to add methods for pagination and sorting.
+- **Methods**: findAll(Pageable pageable), findAll(Sort sort).
+
+### JpaRepository:
+- **Purpose**: Extends `PagingAndSortingRepository` to add JPA-specific methods.
+- **Methods**: flush, saveAndFlush, deleteInBatch, etc.
+
+### Example:
+```java
+public interface UserRepository extends JpaRepository<User, Long> {
+    List<User> findByName(String name);
+}
+```
+
+`UserRepository` will have methods from `CrudRepository`, `PagingAndSortingRepository`, and `JpaRepository`.
+
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 3. How do you configure a Spring Boot application to connect to a relational database?
+### Configuration:
+1. **Add Dependency**:
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId> <!-- or your database choice -->
+</dependency>
+```
+
+2. **application.properties**:
+```properties
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.datasource.driver-class-name=org.h2.Driver
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+```
+For other databases, replace the URL, username, password, driver, and dialect accordingly.
+
+### Example:
+```java
+@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+```
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 4. What is the purpose of the @Entity annotation in Spring Data JPA?
+The `@Entity` annotation specifies that the class is an entity and is mapped to a database table.
+
+### Example:
+```java
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String email;
+
+    // getters and setters
+}
+```
+
+In this example, the `User` class is mapped to a database table named `User`.
+
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 5. How do you handle transactions in Spring Boot?
+Transactions in Spring Boot are handled using the `@Transactional` annotation.
+
+### Example:
+```java
+@Service
+public class UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Transactional
+    public void saveUser(User user) {
+        userRepository.save(user);
+        // Additional transactional logic
+    }
+}
+```
+
+The `@Transactional` annotation ensures that the method is executed within a transaction context.
+
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
