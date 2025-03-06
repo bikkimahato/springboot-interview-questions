@@ -1795,3 +1795,113 @@ The `@Transactional` annotation ensures that the method is executed within a tra
 
 #### **[⬆ Back to Top](#spring-boot-data-access)**
 ---
+
+### 6. What are some common strategies for handling database migrations in Spring Boot?
+### Common Strategies:
+1. **Flyway**: Version-based migration tool.
+2. **Liquibase**: XML/JSON/YAML-based migration tool.
+
+### Example with Flyway:
+1. **Add Dependency**:
+```xml
+<dependency>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-core</artifactId>
+</dependency>
+```
+
+2. **application.properties**:
+```properties
+spring.flyway.locations=classpath:db/migration
+```
+
+3. **Migration Script**:
+```sql
+-- V1__Create_user_table.sql
+CREATE TABLE user (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100)
+);
+```
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 7. How would you implement a custom query method in a Spring Data JPA repository?
+### Using @Query Annotation:
+```java
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    @Query("SELECT u FROM User u WHERE u.email = ?1")
+    User findByEmail(String email);
+}
+```
+
+### Using Query Methods:
+```java
+List<User> findByName(String name);
+```
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 8. What is the difference between EntityManager and Hibernate Session in Spring Boot?
+### EntityManager:
+- **Standard**: Part of JPA specification.
+- **Usage**: Entity lifecycle management in a standard way.
+
+### Hibernate Session:
+- **Specific**: Hibernate-specific implementation.
+- **Usage**: Additional features not covered by JPA.
+
+### Example:
+```java
+@Autowired
+private EntityManager entityManager;
+
+public User getUser(Long id) {
+    return entityManager.find(User.class, id);
+}
+```
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 9. Can you explain the purpose and usage of @Modifying and @Query annotations in Spring Data JPA?
+### @Query:
+Used to define custom queries.
+
+### Example:
+```java
+@Query("UPDATE User u SET u.name = :name WHERE u.id = :id")
+void updateUsername(@Param("id") Long id, @Param("name") String name);
+```
+
+### @Modifying:
+Used with @Query for update and delete operations.
+
+### Example:
+```java
+@Modifying
+@Query("DELETE FROM User u WHERE u.id = :id")
+void deleteUser(@Param("id") Long id);
+```
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 10. How do you implement pagination and sorting in a Spring Boot application?
+### Pagination:
+```java
+Page<User> findAll(Pageable pageable);
+```
+
+### Sorting:
+```java
+List<User> findAll(Sort sort);
+```
+
+### Example:
+```java
+Pageable pageable = PageRequest.of(0, 10, Sort.by("name").ascending());
+Page<User> users = userRepository.findAll(pageable);
+```
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
