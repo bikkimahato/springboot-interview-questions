@@ -1905,3 +1905,105 @@ Page<User> users = userRepository.findAll(pageable);
 ```
 #### **[⬆ Back to Top](#spring-boot-data-access)**
 ---
+
+### 11. What is the N+1 selects problem in JPA, and how do you solve it in Spring Boot?
+### Problem:
+Occurs when an application executes N+1 SQL queries to fetch related entities.
+
+### Solution:
+1. **Fetch Joins**:
+```java
+@Query("SELECT u FROM User u JOIN FETCH u.posts")
+List<User> findAllUsersWithPosts();
+```
+
+2. **Entity Graphs**:
+```java
+@Entity
+@NamedEntityGraph(name = "User.posts", attributeNodes = @NamedAttributeNode("posts"))
+public class User { ... }
+
+@Query("SELECT u FROM User u")
+@EntityGraph(value = "User.posts")
+List<User> findAllUsersWithPosts();
+```
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 12. How do you manage database connections in a Spring Boot application?
+### Connection Pooling:
+Spring Boot uses HikariCP by default.
+
+### Configuration:
+```properties
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=5
+```
+
+### Example:
+```java
+@Configuration
+public class DataSourceConfig {
+    @Bean
+    @ConfigurationProperties("spring.datasource")
+    public DataSource dataSource() {
+        return DataSourceBuilder.create().build();
+    }
+}
+```
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 13. What is the difference between eager and lazy fetching in JPA?
+### Eager Fetching:
+Fetches related entities immediately.
+
+### Lazy Fetching:
+Fetches related entities on demand.
+
+### Example:
+```java
+@OneToMany(fetch = FetchType.LAZY)
+private List<Post> posts;
+```
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 14. How do you handle optimistic locking in JPA?
+### Usage:
+Use `@Version` annotation to handle versions.
+
+### Example:
+```java
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Version
+    private int version;
+
+    private String name;
+    // getters and setters
+}
+```
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
+
+### 15. What are some best practices for designing and maintaining Spring Data JPA repositories?
+### Best Practices:
+1. **Keep Repositories Clean**: Focus on data access operations.
+2. **Use DTOs**: Avoid returning entities directly.
+3. **Pagination and Sorting**: Always use pagination for large datasets.
+4. **Custom Queries**: Use JPQL or native queries when necessary.
+5. **Auditing**: Implement auditing for tracking changes.
+
+### Example:
+```java
+public interface UserRepository extends JpaRepository<User, Long> {
+    List<User> findByName(String name);
+}
+```
+#### **[⬆ Back to Top](#spring-boot-data-access)**
+---
